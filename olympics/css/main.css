@@ -1,0 +1,38 @@
+html {
+    font-family: 'Open Sans', sans-serif;
+    box-sizing: border-box;
+    color: #404040;
+    height: 100%;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+tr, th, td {
+    border: 1px solid #ddd;
+    padding: .5rem;
+    text-align: center;
+    vertical-align: center;
+}
+ 
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
+
+#topRow {
+    color: #9fa6ad;
+    background: #242729; 
+}
+
+#filterDescription {
+    font-size: .7rem;
+}
+
+#filterBoxBlock {
+    padding-bottom: 1.5rem;
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="Aubrey Quinn">
+        <link rel="stylesheet" type="text/css" href="css/main.css">
+        <title>2008 Olympic Results</title>
+        <script src="olympics_2008_medalists.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/lodash/4.17.4/lodash.min.js"></script>
+    </head>
+    <body ng-app="app" ng-controller="OlympicDataController">
+        <h1>2008 Olympic Results</h1>
+
+        <div id="filterBoxBlock">
+            <label for="filterBox">Filter: </label>
+            <input type="number" id="filterBox" min="0" max="999" ng-model="searchText" />
+            <div id="filterDescription">(filter counteries by number of gold, silver, or bronze medals)</div>
+        </div>
+
+        <table>
+            <tr id="topRow">
+                <th>Rank</th>
+                <th>Country</th> 
+                <th>Total Medals</th>
+                <th>Gold</th>
+                <th>Silver</th>
+                <th>Bronze</th>
+            </tr>
+            <tr ng-repeat="x in olympicResults | medalsFilter:searchText">
+                <td>{{ x.rank }}</td>
+                <td>{{ x.country }}</td>
+                <td>{{ x.totalMedals }}</td>
+                <td>{{ x.totalGold }}</td>
+                <td>{{ x.totalSilver }}</td>
+                <td>{{ x.totalBronze }}</td>
+            </tr>
+        </table>
+
+        <script src="./modules/app.js"></script>
+        <script src="./factories/olympic-data-factory.js"></script>
+        <script src="./controllers/olympic-data-controller.js"></script>
+        <script src="./filters/medals-filter.js"></script>
+    </body>
+</html>
